@@ -40,13 +40,21 @@ And now you can visit the site with the URL http://localhost:3000
 
 #### Possible currency converions
 USD to KES
+
 USD to NGN
+
 USD to ETB
+
 KES to UGX
+
 GHS to GBP
+
 EUR to NGN
+
 EUR to ZAR
+
 AED to KES
+
 JPY to KES
 
 
