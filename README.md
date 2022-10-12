@@ -1,24 +1,38 @@
-# README
+##### Prerequisites
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The setups steps expect following tools installed on the system.
 
-Things you may want to cover:
+- Github
+- Ruby [3.0.0](https://github.com/organization/project-name/blob/master/.ruby-version#L1)
+- Rails [5.0.2](https://github.com/organization/project-name/blob/master/Gemfile#L12)
 
-* Ruby version
+##### 1. Check out the repository
 
-* System dependencies
+```bash
+git clone https://github.com/shariff6/transactions-microservice.git
+```
 
-* Configuration
+##### 2. Install gems
+```ruby
+bundle install
+```
 
-* Database creation
 
-* Database initialization
+##### 3. Create and setup the database
 
-* How to run the test suite
+Run the following commands to create and setup the database.
 
-* Services (job queues, cache servers, search engines, etc.)
+```ruby
+rails db:create
+rails db:setup
+```
 
-* Deployment instructions
+##### 4. Start the Rails server
 
-* ...
+You can start the rails server using the command given below.
+
+```ruby
+rails s
+```
+
+And now you can visit the site with the URL http://localhost:3000
