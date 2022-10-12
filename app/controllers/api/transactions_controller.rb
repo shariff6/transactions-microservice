@@ -14,7 +14,7 @@ class Api::TransactionsController < ApplicationController
   end
 
   def create
-    user_id = null,
+    user_id = 23456789,
     # user_id = current_user
     input_amount = params[:input_amount]*100
     input_currency = params[:input_currency]
