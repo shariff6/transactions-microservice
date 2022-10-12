@@ -12,7 +12,13 @@ The setups steps expect following tools installed on the system.
 git clone https://github.com/shariff6/transactions-microservice.git
 ```
 
-##### 2. Create and setup the database
+##### 2. Install gems
+```ruby
+bundle install
+```
+
+
+##### 3. Create and setup the database
 
 Run the following commands to create and setup the database.
 
