@@ -1,14 +1,21 @@
 class Api::TransactionsController < ApplicationController
   def index
-    response = Transaction.all
-    render json: response, status: 200
+    transactions = Transaction.all
+    render json: transactions, status: 200
   end
 
   def show
+    transaction = Transaction.find_by(id: params[:id])
+    if transaction
+      render json: transaction, status: 200     
+    else
+      render json: {error: "Transaction not found"}
+    end
   end
 
   def create
-    user_id = 1234565453,
+    user_id = null,
+    # user_id = current_user
     input_amount = params[:input_amount]*100
     input_currency = params[:input_currency]
     output_currency = params[:output_currency]
