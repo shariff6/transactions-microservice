@@ -36,3 +36,8 @@ rails s
 ```
 
 And now you can visit the site with the URL http://localhost:3000
+
+
+#### View Postman Collection 
+
+(https://www.getpostman.com/collections/5ae10e181644d39a2355)
