@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   namespace :api do
-    get 'transactions/index'
-    get 'transactions/show'
+    resources :transactions, only: [:index, :show, :create]
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
