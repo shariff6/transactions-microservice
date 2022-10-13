@@ -1,7 +1,11 @@
 class Api::TransactionsController < ApplicationController
   def index
-    transactions = Transaction.all
-    render json: transactions, status: 200
+    transactions = Transaction.paginate(:page => params[:page], :per_page => params[:per_page])
+    if transactions
+      render json: transactions, status: 200   
+    else
+      render json: transactions.errors.full_messages, status: 200
+    end
   end
 
   def show
@@ -14,7 +18,7 @@ class Api::TransactionsController < ApplicationController
   end
 
   def create
-    user_id = 23456789,
+    user_id = 23456789
     # user_id = current_user
     input_amount = params[:input_amount]*100
     input_currency = params[:input_currency]
@@ -24,6 +28,8 @@ class Api::TransactionsController < ApplicationController
 
     if transaction.save
       render json: transaction, status: 200 
+    else
+      render json: transaction.errors.full_messages
     end
   end
 end
