@@ -1,5 +1,5 @@
 Money.add_rate("USD", "KES", 120.90)
-Money.add_rate("USD", "NGN", 1.24515)
+Money.add_rate("USD", "NGN", 434.75)
 Money.add_rate("USD", "ETB", 52.96)
 Money.add_rate("KES", "UGX", 31.76)
 Money.add_rate("GHS", "GBP", 0.086)
