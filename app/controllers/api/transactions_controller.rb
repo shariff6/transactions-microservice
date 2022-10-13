@@ -1,4 +1,5 @@
 class Api::TransactionsController < ApplicationController
+
   def index
     if params[:page] && params[:per_page]
       transactions = Transaction.where(:user_id => current_user.id).paginate(:page => params[:page], :per_page => params[:per_page])  
