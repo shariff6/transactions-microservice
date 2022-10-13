@@ -1,6 +1,10 @@
 class Api::TransactionsController < ApplicationController
   def index
-    transactions = Transaction.paginate(:page => params[:page], :per_page => params[:per_page])
+    if params[:page] && params[:per_page]
+      transactions = Transaction.where(:user_id => current_user.id).paginate(:page => params[:page], :per_page => params[:per_page])  
+    else
+      transactions = Transaction.where(:user_id => current_user.id)
+    end
     if transactions
       render json: transactions, status: 200   
     else
@@ -10,7 +14,7 @@ class Api::TransactionsController < ApplicationController
 
   def show
     transaction = Transaction.find_by(id: params[:id])
-    if transaction
+    if transaction && transaction.user_id == current_user.id
       render json: transaction, status: 200     
     else
       render json: {error: "Transaction not found"}
@@ -18,8 +22,7 @@ class Api::TransactionsController < ApplicationController
   end
 
   def create
-    user_id = 23456789
-    # user_id = current_user
+    user_id = current_user.id
     input_amount = params[:input_amount]*100
     input_currency = params[:input_currency]
     output_currency = params[:output_currency]
