@@ -25,17 +25,17 @@ class Api::TransactionsController < ApplicationController
   end
 
   def create
-    user_id = current_user.id
-    input_amount = params[:input_amount]*100
-    input_currency = params[:input_currency]
-    output_currency = params[:output_currency]
-    output_amount = Money.from_cents(input_amount, input_currency).exchange_to(output_currency)
-    transaction = Transaction.new(user_id: user_id, input_amount: input_amount, input_currency: input_currency, output_currency: output_currency, output_amount: output_amount.fractional)
-
+    transaction = Transaction.new(transaction_params) 
     if transaction.save
       render json: transaction, status: 200 
     else
       render json: transaction.errors.full_messages
     end
   end
+end
+
+private
+
+def transaction_params
+  params.require(:transaction).permit(:input_amount, :input_currency, :output_amount, :output_currency).merge(user: current_user)
 end
