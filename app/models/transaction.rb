@@ -1,5 +1,4 @@
 class Transaction < ApplicationRecord
-    before_save :input_amount
     belongs_to :user
     validates :user_id, presence: true
     validates :input_amount, presence: true
