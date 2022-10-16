@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  post 'authenticate', to: 'authentication#authenticate'
+  post "authenticate", to: "authentication#authenticate"
   namespace :api do
     resources :transactions, only: [:index, :show, :create]
     resources :users, only: [:create]
